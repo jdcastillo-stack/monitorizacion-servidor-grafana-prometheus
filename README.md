@@ -74,6 +74,61 @@ ping -c 4 google.com
 Resultado esperado:
 El Raspberry Pi queda actualizado, con IP fija y acceso SSH estable, listo para instalar el entorno de monitoreo.
 
+📌 Fase 2 – Instalación de herramientas base
+
+Objetivo:
+Dejar el entorno de contenedores listo en tu Raspberry Pi instalando Docker y Docker Compose.
+
+🔹 Paso 1 – Instalar Docker
+curl -fsSL https://get.docker.com -o get-docker.sh
+sh get-docker.sh
+sudo usermod -aG docker $USER
+
+
+¿Qué hace esto?
+
+curl … descarga el script oficial de instalación de Docker.
+
+sh get-docker.sh ejecuta ese script y configura Docker en tu Raspberry.
+
+usermod -aG docker $USER añade tu usuario al grupo docker para que no tengas que usar sudo cada vez.
+
+Por qué es importante:
+Docker te permite levantar servicios (Prometheus, Grafana, exporters) en contenedores, sin instalarlos directamente en tu sistema. Es más limpio, más fácil de mantener y replicar.
+
+🔹 Paso 2 – Instalar Docker Compose
+sudo apt install docker-compose -y
+
+
+¿Qué es?
+Docker Compose es una herramienta que usa un archivo (docker-compose.yml) donde describes varios servicios (Prometheus, Grafana, Node Exporter, etc.) y luego los levantas todos juntos con un solo comando.
+
+Por qué se hace:
+
+Simplifica la gestión de varios contenedores.
+
+Te evita correr comandos largos de docker run uno por uno.
+
+Hace tu proyecto más profesional y reproducible (subes el docker-compose.yml a GitHub y cualquiera puede replicarlo).
+
+🔹 Paso 3 – Probar que Docker funciona
+docker run hello-world
+
+
+Qué pasa aquí:
+
+Descarga una pequeña imagen de prueba de Docker Hub.
+
+La ejecuta en un contenedor.
+
+Si ves un mensaje que dice “Hello from Docker!”, significa que Docker funciona correctamente.
+
+📌 Resultado esperado
+
+Docker y Docker Compose instalados y funcionando en tu Raspberry Pi.
+Tu usuario ya puede ejecutar comandos docker sin necesidad de sudo.
+Contenedor de prueba (hello-world) ejecutado con éxito.
+
 1. **Instalar Docker y Docker Compose**
 
    ```bash
