@@ -234,12 +234,26 @@ Node Exporter → http://IP_RASPBERRY:9100/metrics (verás texto con métricas c
 Grafana → http://IP_RASPBERRY:3000 (usuario: admin, contraseña: admin la primera vez).
 
 📌 Resultado esperado
-
 Prometheus corriendo en el puerto 9090, recolectando métricas de tu Raspberry Pi.
-
 Node Exporter exponiendo métricas del sistema.
-
 Grafana disponible en el puerto 3000 para crear paneles.
+
+
+📌 Fase 4 – Configuración de Grafana y dashboards
+
+Objetivo: Visualizar las métricas.
+
+Acceder a Grafana → http://IP_RASPBERRY:3000
+
+Iniciar sesión (admin / admin) y cambiar contraseña.
+
+Añadir Prometheus como fuente de datos.
+
+Importar o crear dashboards para CPU, RAM, disco, tráfico de red.
+
+Guardar capturas de pantalla para documentación.
+
+📌 Resultado esperado: Dashboards en Grafana mostrando métricas en tiempo real.
 
 1. **Instalar Docker y Docker Compose**
 
